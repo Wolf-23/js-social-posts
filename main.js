@@ -90,7 +90,7 @@ for (let x = 0; x < posts.length; x++) {
                                     </a>
                                 </div>
                                 <div class="likes__counter">
-                                    Piace a <b id='like-counter-${posts[x].id}' class="js-likes-counter">${posts[x].likes}</b> persone
+                                    Piace a <b class="js-likes-counter">${posts[x].likes}</b> persone
                                 </div>
                             </div> 
                             </div>`;       
