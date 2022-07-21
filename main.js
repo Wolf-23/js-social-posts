@@ -69,7 +69,7 @@ for (let x = 0; x < posts.length; x++) {
     post.innerHTML = `  <div class="post__header">
                             <div class="post-meta">                    
                                 <div class="post-meta__icon">
-                                    <img class="profile-pic" src="${posts[x].author.image}" alt="Foto profilo di ${posts[x].author.name}">                    
+                                    ${posts[x].author.image?defaultImage(posts[x].author):avatar(posts[x].author.name)}
                                 </div>
                                 <div class="post-meta__data">
                                     <div class="post-meta__author">${posts[x].author.name}</div>
@@ -127,5 +127,12 @@ for ( let i = 0; i < posts.length; i++) {
     });
 } 
 
-
-                    
+function avatar (username) {
+    const nameParts = username.split(' ');
+    const iniziali = nameParts.map( part => part.charAt(0).toUpperCase());
+    return `<div class="profile-pic-default">${iniziali.join('')}</div>`;
+}
+              
+function defaultImage(author) {
+    return `<img class="profile-pic" src="${author.image}" alt="${author.name}">`;
+}
