@@ -119,7 +119,7 @@ for ( let i = 0; i < posts.length; i++) {
             // Cambio il contentuo testuale del Counter
             likeCounterJs[i].innerHTML = posts[i].likes;
             // Rimuovo tutto l'attrubuto style 
-            e.target.removeAttribute('style');
+            this.classList.remove('like-button--liked');
         } else {
             // Pusho il valore di IDPost dentro l'array che contiene i post a cui ho messo like
             likesArray.push(IDPost);
@@ -128,7 +128,7 @@ for ( let i = 0; i < posts.length; i++) {
             // Cambio il contentuo testuale del Counter
             likeCounterJs[i].innerHTML = posts[i].likes;
             // MKodifico il colore 
-            e.target.style.color = 'green';
+            this.classList.add('like-button--liked');
         }
     });
 }
