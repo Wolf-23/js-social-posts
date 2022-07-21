@@ -90,7 +90,7 @@ for (let x = 0; x < posts.length; x++) {
                                     </a>
                                 </div>
                                 <div class="likes__counter">
-                                    Piace a <b class="js-likes-counter">${posts[x].likes}</b> persone
+                                    Piace a <b id='like-counter-${posts[x].id}' class="js-likes-counter">${posts[x].likes}</b> persone
                                 </div>
                             </div> 
                             </div>`;       
@@ -114,22 +114,18 @@ for ( let i = 0; i < posts.length; i++) {
                   likesArray.splice(j, 1); 
                 }
             }
-            // Decremento il valore dell'array stesso
-            posts[i].likes = posts[i].likes - 1;
-            // Cambio il contentuo testuale del Counter
-            likeCounterJs[i].innerHTML = posts[i].likes;
-            // Rimuovo tutto l'attrubuto style 
+            likeCounterJs[i].innerText = parseInt(likeCounterJs[i].innerText) - 1;
+            // Rimuovo la classe 
             this.classList.remove('like-button--liked');
         } else {
             // Pusho il valore di IDPost dentro l'array che contiene i post a cui ho messo like
             likesArray.push(IDPost);
-            // Incremento il valore dell'array stesso
-            posts[i].likes = posts[i].likes + 1;
-            // Cambio il contentuo testuale del Counter
-            likeCounterJs[i].innerHTML = posts[i].likes;
-            // MKodifico il colore 
+            likeCounterJs[i].innerText = parseInt(likeCounterJs[i].innerText) + 1;
+            // Modifico il colore aggiungendo la classe 
             this.classList.add('like-button--liked');
         }
     });
-}
+} 
+
+
                     
