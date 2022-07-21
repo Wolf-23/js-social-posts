@@ -64,7 +64,7 @@ for (let x = 0; x < posts.length; x++) {
     post.classList.add('post');
     containerDom.append(post);
     // Recupero i valore di giorno mese ed anno grazie alla funzione substring()
-    let date = posts[x].created.substring(8, 10) + '/' + posts[x].created.substring(5, 7) + '/' + posts[x].created.substring(0, 4);
+    let date = posts[x].created.split('-').reverse().join('/');
     // Creo il mio post con i valori dell'array   
     post.innerHTML = `  <div class="post__header">
                             <div class="post-meta">                    
